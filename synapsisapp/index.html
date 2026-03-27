@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Synapsis App – Suporte</title>
+    <title>Synapsis App – Suporte / Support</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico" />
@@ -55,9 +55,37 @@
             color: #6c757d;
             font-size: 0.85rem;
         }
-        a {
-            color: #6ea8fe;
+        a { color: #6ea8fe; }
+        .lang-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
         }
+        .lang-toggle .btn {
+            border-radius: 20px;
+            font-size: 0.85rem;
+            padding: 0.3rem 1rem;
+        }
+        .lang-section { display: none; }
+        .lang-section.active { display: block; }
+        .accordion-button:not(.collapsed) {
+            background: rgba(13, 110, 253, 0.15);
+            color: white;
+            box-shadow: none;
+        }
+        .accordion-button::after {
+            filter: invert(1);
+        }
+        .faq-category {
+            color: #6ea8fe;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        hr { border-color: rgba(255,255,255,0.1); margin: 2rem 0; }
     </style>
 </head>
 <body>
@@ -68,13 +96,29 @@
         <a href="/" class="text-decoration-none" style="color: #adb5bd; font-size: 0.9rem;">
             <i class="bi bi-arrow-left me-1"></i> nverseio
         </a>
-        <div class="mb-4">
+        <div class="mb-4 mt-4">
             <i class="bi bi-brain" style="font-size: 4rem; color: #6ea8fe;"></i>
         </div>
         <h1>Synapsis</h1>
-        <p class="lead fs-5">Registre seus minutos de concentração.<br/>Leitura, estudo, foco — tudo em um lugar.</p>
+
+        <!-- Language Toggle -->
+        <div class="lang-toggle mt-3">
+            <button class="btn btn-outline-light" onclick="setLang('en')" id="btn-en">English</button>
+            <button class="btn btn-primary" onclick="setLang('pt')" id="btn-pt">Português</button>
+        </div>
+
+        <!-- Hero subtitle -->
+        <div class="lang-section active" id="hero-pt">
+            <p class="lead fs-5">Registre seus minutos de concentração.<br/>Leitura, estudo, foco — tudo em um lugar.</p>
+        </div>
+        <div class="lang-section" id="hero-en">
+            <p class="lead fs-5">Track your focus minutes.<br/>Reading, study, deep work — all in one place.</p>
+        </div>
+
         <a href="#" class="btn btn-primary btn-lg mt-3 px-4" style="border-radius: 25px;">
-            <i class="bi bi-apple me-2"></i> Disponível na App Store
+            <i class="bi bi-apple me-2"></i>
+            <span class="lang-section active" id="appstore-pt" style="display:inline;">Disponível na App Store</span>
+            <span class="lang-section" id="appstore-en">Available on the App Store</span>
         </a>
     </div>
 </section>
@@ -82,111 +126,392 @@
 <!-- Sobre o App -->
 <section class="section">
     <div class="container">
-        <h2 class="section-title text-center">O que é o Synapsis?</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card-dark text-center">
-                    <p class="mb-0 fs-5" style="color: #adb5bd;">
-                        <!-- Texto principal do app — a ser preenchido -->
-                        Texto sobre o app virá aqui.
-                    </p>
+
+        <!-- PT -->
+        <div class="lang-section active" id="about-pt">
+            <h2 class="section-title text-center">O que é o Synapsis?</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card-dark text-center">
+                        <p class="mb-0 fs-5" style="color: #adb5bd;">
+                            A concentração é um músculo; o Synapsis é o seu rastreador de treino. Registre suas sessões de leitura, trabalho profundo ou estudo sem distrações. Menos ruído, mais dados. Fortaleça suas conexões neurais e visualize seu progresso a cada sessão de foco.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- EN -->
+        <div class="lang-section" id="about-en">
+            <h2 class="section-title text-center">What is Synapsis?</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card-dark text-center">
+                        <p class="mb-0 fs-5" style="color: #adb5bd;">
+                            Focus is a muscle; Synapsis is your training tracker. Log your reading, deep work, or study sessions without distractions. Less noise, more data. Strengthen your neural connections and visualize your progress with every focus session.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
 <!-- Funcionalidades -->
 <section class="section" style="padding-top: 0;">
     <div class="container">
-        <h2 class="section-title text-center">Funcionalidades</h2>
-        <div class="row g-4 justify-content-center">
-            <div class="col-md-4">
-                <div class="card-dark">
-                    <div class="icon-circle"><i class="bi bi-clock"></i></div>
-                    <h5>Registro de Sessões</h5>
-                    <p style="color: #adb5bd;"><!-- Descrição --></p>
+
+        <!-- PT -->
+        <div class="lang-section active" id="features-pt">
+            <h2 class="section-title text-center">Funcionalidades</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-clock"></i></div>
+                        <h5>Registro de Sessões</h5>
+                        <p style="color: #adb5bd;">Inicie um cronômetro ou contagem regressiva e registre cada sessão de foco com categoria, título e duração.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-dark">
-                    <div class="icon-circle"><i class="bi bi-bar-chart-line"></i></div>
-                    <h5>Estatísticas</h5>
-                    <p style="color: #adb5bd;"><!-- Descrição --></p>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-bar-chart-line"></i></div>
+                        <h5>Estatísticas</h5>
+                        <p style="color: #adb5bd;">Acompanhe seu histórico, totais por categoria e evolução ao longo do tempo diretamente na aba Progresso.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-dark">
-                    <div class="icon-circle"><i class="bi bi-tag"></i></div>
-                    <h5>Categorias</h5>
-                    <p style="color: #adb5bd;"><!-- Descrição --></p>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-tag"></i></div>
+                        <h5>Categorias</h5>
+                        <p style="color: #adb5bd;">Organize suas sessões por tipo de atividade — Leitura, Trabalho, Estudo — e veja onde seu tempo realmente vai.</p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- EN -->
+        <div class="lang-section" id="features-en">
+            <h2 class="section-title text-center">Features</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-clock"></i></div>
+                        <h5>Session Tracking</h5>
+                        <p style="color: #adb5bd;">Start a timer or countdown and log each focus session with a category, title, and duration.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-bar-chart-line"></i></div>
+                        <h5>Statistics</h5>
+                        <p style="color: #adb5bd;">Review your history, totals by category, and progress over time directly in the Progress tab.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-tag"></i></div>
+                        <h5>Categories</h5>
+                        <p style="color: #adb5bd;">Organize sessions by activity type — Reading, Work, Study — and see exactly where your time goes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
-<!-- Suporte -->
+<!-- Suporte / Support -->
 <section class="section" style="padding-top: 0;">
     <div class="container">
-        <h2 class="section-title text-center">Suporte</h2>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card-dark">
 
-                    <h5><i class="bi bi-question-circle me-2"></i>Perguntas Frequentes</h5>
-                    <div class="accordion accordion-flush mt-3" id="faqAccordion">
-                        <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" style="background: transparent; color: white;">
-                                    <!-- Pergunta 1 -->
-                                    Pergunta frequente 1
-                                </button>
-                            </h2>
-                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body" style="color: #adb5bd;">
-                                    <!-- Resposta 1 -->
+                    <!-- PT -->
+                    <div class="lang-section active" id="faq-pt">
+
+                        <h5><i class="bi bi-question-circle me-2"></i>Perguntas Frequentes</h5>
+
+                        <p class="faq-category">Perguntas Gerais</p>
+                        <div class="accordion accordion-flush" id="faqAccordionPt">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt1" style="background: transparent; color: white;">
+                                        1. O que é o visualizador de "Rede" na tela do cronômetro?
+                                    </button>
+                                </h2>
+                                <div id="faqPt1" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        A rede representa suas conexões neurais (sinapses). À medida que você se concentra, a visualização cresce e conecta novos pontos, simbolizando o esforço mental e o "fortalecimento" do seu músculo da concentração. É uma representação em tempo real da sua sessão de trabalho profundo.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="background: transparent; color: white;">
-                                    <!-- Pergunta 2 -->
-                                    Pergunta frequente 2
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body" style="color: #adb5bd;">
-                                    <!-- Resposta 2 -->
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt2" style="background: transparent; color: white;">
+                                        2. Como ganho medalhas como "O Polímata"?
+                                    </button>
+                                </h2>
+                                <div id="faqPt2" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        As medalhas são concedidas com base na sua consistência e variedade. Por exemplo:
+                                        <ul class="mt-2">
+                                            <li><strong style="color: white;">Bronze/Prata/Ouro:</strong> Com base no total de horas de foco acumuladas.</li>
+                                            <li><strong style="color: white;">O Polímata:</strong> Conquistada ao equilibrar sessões entre diferentes categorias (Leitura, Trabalho, Estudo).</li>
+                                            <li><strong style="color: white;">Modo Maratona:</strong> Concedida por completar sessões longas e ininterruptas de trabalho profundo.</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt3" style="background: transparent; color: white;">
+                                        3. Qual é a diferença entre "Cronômetro" e "Contagem Regressiva"?
+                                    </button>
+                                </h2>
+                                <div id="faqPt3" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        <ul class="mb-0">
+                                            <li><strong style="color: white;">Cronômetro:</strong> Ideal para sessões abertas em que você quer ver por quanto tempo consegue manter o foco.</li>
+                                            <li><strong style="color: white;">Contagem Regressiva:</strong> Ideal para técnicas com tempo fixo, como o Pomodoro, ou quando você tem um bloco de tempo definido disponível.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+
+                        <p class="faq-category">Dados &amp; Privacidade</p>
+
+                        <div class="accordion accordion-flush" id="faqAccordionPt2">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt4" style="background: transparent; color: white;">
+                                        4. Onde meus dados são armazenados?
+                                    </button>
+                                </h2>
+                                <div id="faqPt4" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Seus dados são estritamente seus. O Synapsis salva tudo localmente no seu dispositivo. Se você tiver o iCloud ativado, um backup é sincronizado automaticamente para a sua nuvem privada, garantindo que você não perca seu progresso ao trocar de aparelho.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt5" style="background: transparent; color: white;">
+                                        5. Posso exportar meu histórico?
+                                    </button>
+                                </h2>
+                                <div id="faqPt5" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        No momento, seu histórico fica visível na aba Progresso. Estamos trabalhando em atualizações futuras para permitir a exportação dos dados em formatos como CSV ou Markdown (perfeito para usuários do Obsidian!).
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt6" style="background: transparent; color: white;">
+                                        6. Como excluo uma sessão registrada incorretamente?
+                                    </button>
+                                </h2>
+                                <div id="faqPt6" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Vá até a aba Progresso, localize a sessão no seu Histórico e deslize para a esquerda sobre o item para excluí-la.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="faq-category">Problemas Técnicos</p>
+
+                        <div class="accordion accordion-flush" id="faqAccordionPt3">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt7" style="background: transparent; color: white;">
+                                        7. Minhas medalhas não estão sendo atualizadas. O que faço?
+                                    </button>
+                                </h2>
+                                <div id="faqPt7" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Certifique-se de ter finalizado a sessão pressionando o botão "Concluir" (ícone de seta). Se o problema persistir, tente reiniciar o app. Como os dados são locais, uma atualização rápida geralmente sincroniza as conquistas.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt8" style="background: transparent; color: white;">
+                                        8. Encontrei um bug ou tenho uma sugestão. Como entrar em contato?
+                                    </button>
+                                </h2>
+                                <div id="faqPt8" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Adoro receber feedback! Você pode entrar em contato diretamente com o desenvolvedor pelo e-mail <a href="mailto:synapsisapp@pm.me">synapsisapp@pm.me</a>. Como é um projeto solo, cada feedback ajuda a tornar o Synapsis melhor.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr />
+
+                        <h5><i class="bi bi-envelope me-2"></i>Contato</h5>
+                        <p style="color: #adb5bd;">Para dúvidas ou problemas, entre em contato:</p>
+                        <a href="mailto:synapsisapp@pm.me">synapsisapp@pm.me</a>
+
                     </div>
 
-                    <hr style="border-color: rgba(255,255,255,0.1); margin: 2rem 0;" />
+                    <!-- EN -->
+                    <div class="lang-section" id="faq-en">
 
-                    <h5><i class="bi bi-envelope me-2"></i>Contato</h5>
-                    <p style="color: #adb5bd;">Para dúvidas ou problemas, entre em contato:</p>
-                    <a href="mailto:suporte@nverseio.com">suporte@nverseio.com</a>
+                        <h5><i class="bi bi-question-circle me-2"></i>Frequently Asked Questions</h5>
 
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                        <p class="faq-category">General Questions</p>
+                        <div class="accordion accordion-flush" id="faqAccordionEn">
 
-<!-- Privacidade -->
-<section class="section" style="padding-top: 0;">
-    <div class="container">
-        <h2 class="section-title text-center">Privacidade</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card-dark">
-                    <p style="color: #adb5bd;">
-                        <!-- Política de privacidade resumida — a ser preenchida -->
-                        Informações sobre coleta e uso de dados virão aqui.
-                    </p>
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn1" style="background: transparent; color: white;">
+                                        1. What is the "Network" visualizer on the timer screen?
+                                    </button>
+                                </h2>
+                                <div id="faqEn1" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        The network represents your neural connections (synapses). As you focus, the visualization grows and connects new nodes, symbolizing the mental effort and the "strengthening" of your concentration muscle. It's a real-time representation of your deep work session.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn2" style="background: transparent; color: white;">
+                                        2. How do I earn medals like "The Polymath"?
+                                    </button>
+                                </h2>
+                                <div id="faqEn2" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Medals are awarded based on your consistency and variety. For example:
+                                        <ul class="mt-2">
+                                            <li><strong style="color: white;">Bronze/Silver/Gold:</strong> Based on total accumulated focus hours.</li>
+                                            <li><strong style="color: white;">The Polymath:</strong> Earned by balancing sessions across different categories (Reading, Work, Study).</li>
+                                            <li><strong style="color: white;">Marathon Mode:</strong> Awarded for completing long, uninterrupted deep work sessions.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn3" style="background: transparent; color: white;">
+                                        3. What is the difference between "Timer" and "Countdown"?
+                                    </button>
+                                </h2>
+                                <div id="faqEn3" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        <ul class="mb-0">
+                                            <li><strong style="color: white;">Timer:</strong> Best for open-ended sessions where you want to see how long you can maintain focus.</li>
+                                            <li><strong style="color: white;">Countdown:</strong> Best for fixed-time techniques like Pomodoro or when you have a specific time block available.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="faq-category">Data &amp; Privacy</p>
+
+                        <div class="accordion accordion-flush" id="faqAccordionEn2">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn4" style="background: transparent; color: white;">
+                                        4. Where is my data stored?
+                                    </button>
+                                </h2>
+                                <div id="faqEn4" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Your data is strictly yours. Synapsis saves everything locally on your device. If you have iCloud enabled, a backup is automatically synced to your private cloud so you don't lose your progress when switching devices.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn5" style="background: transparent; color: white;">
+                                        5. Can I export my history?
+                                    </button>
+                                </h2>
+                                <div id="faqEn5" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Currently, your history is visible in the Progress tab. We are working on future updates to allow exporting your data to formats like CSV or Markdown (perfect for Obsidian users!).
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn6" style="background: transparent; color: white;">
+                                        6. How do I delete a misrecorded session?
+                                    </button>
+                                </h2>
+                                <div id="faqEn6" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Go to the Progress tab, find the session in your History, and swipe left on the entry to delete it.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="faq-category">Troubleshooting</p>
+
+                        <div class="accordion accordion-flush" id="faqAccordionEn3">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn7" style="background: transparent; color: white;">
+                                        7. My medals aren't updating. What should I do?
+                                    </button>
+                                </h2>
+                                <div id="faqEn7" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Make sure you have completed the session by pressing the "Finish" button (the arrow icon). If the issue persists, try restarting the app. Since data is local, a quick refresh usually syncs the achievements.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn8" style="background: transparent; color: white;">
+                                        8. I found a bug or have a suggestion. How can I reach out?
+                                    </button>
+                                </h2>
+                                <div id="faqEn8" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        We love feedback! You can reach the developer directly at <a href="mailto:synapsisapp@pm.me">synapsisapp@pm.me</a>. As a solo developer project, every piece of feedback helps make Synapsis better.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr />
+
+                        <h5><i class="bi bi-envelope me-2"></i>Contact</h5>
+                        <p style="color: #adb5bd;">For questions or issues, please reach out:</p>
+                        <a href="mailto:synapsisapp@pm.me">synapsisapp@pm.me</a>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -194,9 +519,22 @@
 </section>
 
 <footer>
+    <a href="/synapsisapp/privacy" class="me-3">
+        <span class="lang-section active" id="footer-privacy-pt" style="display:inline;">Política de Privacidade</span>
+        <span class="lang-section" id="footer-privacy-en">Privacy Policy</span>
+    </a>
     <small>&copy; 2026 Nelson Meireles / nverseio — Todos os direitos reservados</small>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function setLang(lang) {
+        document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('#lang-' + lang + ', #hero-' + lang + ', #about-' + lang + ', #features-' + lang + ', #faq-' + lang + ', #appstore-' + lang + ', #footer-privacy-' + lang).forEach(el => el.classList.add('active'));
+        document.getElementById('btn-en').className = lang === 'en' ? 'btn btn-primary' : 'btn btn-outline-light';
+        document.getElementById('btn-pt').className = lang === 'pt' ? 'btn btn-primary' : 'btn btn-outline-light';
+        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    }
+</script>
 </body>
 </html>
