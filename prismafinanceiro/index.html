@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prisma Financeiro – Suporte / Support</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.ico" />
+    <style>
+        body {
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+            color: white;
+            min-height: 100vh;
+        }
+        .hero {
+            padding: 5rem 1rem 3rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .hero p.lead {
+            color: #adb5bd;
+        }
+        .section {
+            padding: 4rem 1rem;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        .card-dark {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            height: 100%;
+        }
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(138, 99, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+        a { color: #a78bfa; }
+        .btn-primary {
+            background-color: #7c3aed;
+            border-color: #7c3aed;
+        }
+        .btn-primary:hover {
+            background-color: #6d28d9;
+            border-color: #6d28d9;
+        }
+        .lang-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        .lang-toggle .btn {
+            border-radius: 20px;
+            font-size: 0.85rem;
+            padding: 0.3rem 1rem;
+        }
+        .lang-section { display: none; }
+        .lang-section.active { display: block; }
+        .accordion-button:not(.collapsed) {
+            background: rgba(124, 58, 237, 0.15);
+            color: white;
+            box-shadow: none;
+        }
+        .accordion-button::after {
+            filter: invert(1);
+        }
+        .faq-category {
+            color: #a78bfa;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        hr { border-color: rgba(255,255,255,0.1); margin: 2rem 0; }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <a href="/" class="text-decoration-none" style="color: #adb5bd; font-size: 0.9rem;">
+            <i class="bi bi-arrow-left me-1"></i> nverseio
+        </a>
+        <div class="mb-4 mt-4">
+            <i class="bi bi-gem" style="font-size: 4rem; color: #a78bfa;"></i>
+        </div>
+        <h1>Prisma Financeiro</h1>
+
+        <!-- Language Toggle -->
+        <div class="lang-toggle mt-3">
+            <button class="btn btn-outline-light" onclick="setLang('en')" id="btn-en">English</button>
+            <button class="btn btn-primary" onclick="setLang('pt')" id="btn-pt">Português</button>
+        </div>
+
+        <!-- Hero subtitle -->
+        <div class="lang-section active" id="hero-pt">
+            <p class="lead fs-5">Registre seus gastos e tenha controle real das suas finanças.<br/>Tudo local, privado e seu.</p>
+        </div>
+        <div class="lang-section" id="hero-en">
+            <p class="lead fs-5">Log your expenses and take real control of your finances.<br/>Everything local, private, and yours.</p>
+        </div>
+
+        <a href="#" class="btn btn-primary btn-lg mt-3 px-4" style="border-radius: 25px;">
+            <i class="bi bi-apple me-2"></i>
+            <span class="lang-section active" id="appstore-pt" style="display:inline;">Disponível na App Store</span>
+            <span class="lang-section" id="appstore-en">Available on the App Store</span>
+        </a>
+    </div>
+</section>
+
+<!-- Sobre o App -->
+<section class="section">
+    <div class="container">
+
+        <!-- PT -->
+        <div class="lang-section active" id="about-pt">
+            <h2 class="section-title text-center">O que é o Prisma Financeiro?</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card-dark text-center">
+                        <p class="mb-0 fs-5" style="color: #adb5bd;">
+                            O Prisma Financeiro é o seu diário de gastos pessoal — rápido, privado e inteligente. Registre transações com a ajuda do Apple Intelligence, organize por categorias e exporte tudo para Markdown automaticamente. Seus dados ficam no seu dispositivo e nunca saem dele sem sua permissão.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EN -->
+        <div class="lang-section" id="about-en">
+            <h2 class="section-title text-center">What is Prisma Financeiro?</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card-dark text-center">
+                        <p class="mb-0 fs-5" style="color: #adb5bd;">
+                            Prisma Financeiro is your personal spending journal — fast, private, and intelligent. Log transactions with the help of Apple Intelligence, organize by category, and automatically export everything to Markdown. Your data stays on your device and never leaves without your permission.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Funcionalidades -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+
+        <!-- PT -->
+        <div class="lang-section active" id="features-pt">
+            <h2 class="section-title text-center">Funcionalidades</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-receipt"></i></div>
+                        <h5>Registro de Gastos</h5>
+                        <p style="color: #adb5bd;">Adicione transações manualmente ou use o Apple Intelligence para criar registros de forma rápida e natural, com processamento 100% local.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-tags"></i></div>
+                        <h5>Categorias</h5>
+                        <p style="color: #adb5bd;">Organize seus gastos por categorias personalizadas — alimentação, transporte, lazer — e veja para onde seu dinheiro está indo.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-filetype-md"></i></div>
+                        <h5>Exportação para Markdown</h5>
+                        <p style="color: #adb5bd;">Todos os seus dados são exportados automaticamente para Markdown. Compatível com Obsidian e qualquer editor de texto — seus dados nunca ficam presos no app.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-bar-chart-line"></i></div>
+                        <h5>Visão Geral</h5>
+                        <p style="color: #adb5bd;">Painéis e gráficos que mostram seus gastos por período e categoria, para decisões financeiras mais conscientes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-cloud-check"></i></div>
+                        <h5>Sincronização iCloud</h5>
+                        <p style="color: #adb5bd;">Seus registros ficam sincronizados entre seus dispositivos Apple via iCloud, sem passar por nenhum servidor externo.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-shield-lock"></i></div>
+                        <h5>Privacidade Total</h5>
+                        <p style="color: #adb5bd;">Nenhum dado é enviado a servidores externos. O Apple Intelligence processa tudo localmente no seu dispositivo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EN -->
+        <div class="lang-section" id="features-en">
+            <h2 class="section-title text-center">Features</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-receipt"></i></div>
+                        <h5>Expense Logging</h5>
+                        <p style="color: #adb5bd;">Add transactions manually or use Apple Intelligence to create records quickly and naturally, with 100% on-device processing.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-tags"></i></div>
+                        <h5>Categories</h5>
+                        <p style="color: #adb5bd;">Organize your expenses with custom categories — food, transport, leisure — and see exactly where your money goes.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-filetype-md"></i></div>
+                        <h5>Markdown Export</h5>
+                        <p style="color: #adb5bd;">All your data is automatically exported to Markdown. Compatible with Obsidian and any text editor — your data is never locked inside the app.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-bar-chart-line"></i></div>
+                        <h5>Overview</h5>
+                        <p style="color: #adb5bd;">Dashboards and charts that show your spending by period and category, for more conscious financial decisions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-cloud-check"></i></div>
+                        <h5>iCloud Sync</h5>
+                        <p style="color: #adb5bd;">Your records stay synced across your Apple devices via iCloud, without going through any external server.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-dark">
+                        <div class="icon-circle"><i class="bi bi-shield-lock"></i></div>
+                        <h5>Full Privacy</h5>
+                        <p style="color: #adb5bd;">No data is sent to external servers. Apple Intelligence processes everything locally on your device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Suporte / Support -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-dark">
+
+                    <!-- PT -->
+                    <div class="lang-section active" id="faq-pt">
+
+                        <h5><i class="bi bi-question-circle me-2"></i>Perguntas Frequentes</h5>
+
+                        <p class="faq-category">Perguntas Gerais</p>
+                        <div class="accordion accordion-flush" id="faqAccordionPt">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt1" style="background: transparent; color: white;">
+                                        1. Como o Apple Intelligence me ajuda a registrar transações?
+                                    </button>
+                                </h2>
+                                <div id="faqPt1" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Com o Apple Intelligence, você pode descrever uma transação em linguagem natural — por exemplo, "gastei R$ 45 no almoço hoje" — e o app cria o registro automaticamente com valor, categoria e data. Todo esse processamento acontece localmente no seu dispositivo, sem enviar nada para a internet.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt2" style="background: transparent; color: white;">
+                                        2. O que é a exportação automática para Markdown?
+                                    </button>
+                                </h2>
+                                <div id="faqPt2" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        O Prisma Financeiro segue a filosofia <em>file over app</em>: seus dados pertencem a você, não ao app. A cada novo registro, o app mantém um arquivo Markdown atualizado com todas as suas transações. Você pode abrir esse arquivo no Obsidian, iA Writer, ou qualquer editor de texto — mesmo que desinstale o app, seus dados continuam legíveis.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt3" style="background: transparent; color: white;">
+                                        3. Preciso de conta ou cadastro para usar o app?
+                                    </button>
+                                </h2>
+                                <div id="faqPt3" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Não. O Prisma Financeiro não requer nenhum cadastro, login ou conta externa. Basta instalar e começar a usar. Tudo funciona com sua Apple ID já existente para o iCloud, se você quiser sincronização.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="faq-category">Dados &amp; Privacidade</p>
+
+                        <div class="accordion accordion-flush" id="faqAccordionPt2">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt4" style="background: transparent; color: white;">
+                                        4. Onde meus dados financeiros são armazenados?
+                                    </button>
+                                </h2>
+                                <div id="faqPt4" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Todos os seus dados ficam exclusivamente no seu dispositivo. Se você tiver o iCloud ativado, um backup é sincronizado para a sua conta pessoal do iCloud. Nenhum dado é enviado para servidores externos — nem para nós, nem para terceiros.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt5" style="background: transparent; color: white;">
+                                        5. O Apple Intelligence envia meus dados para a Apple?
+                                    </button>
+                                </h2>
+                                <div id="faqPt5" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Não. Os recursos de Apple Intelligence usados pelo Prisma Financeiro rodam inteiramente no dispositivo (on-device). Suas informações financeiras nunca saem do seu iPhone ou iPad durante esse processamento.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt6" style="background: transparent; color: white;">
+                                        6. Como excluo meus dados?
+                                    </button>
+                                </h2>
+                                <div id="faqPt6" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Você pode excluir transações individualmente dentro do app ou remover todos os dados desinstalando o aplicativo. Como nunca tivemos uma cópia dos seus dados, não há nada a apagar do nosso lado.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="faq-category">Problemas Técnicos</p>
+
+                        <div class="accordion accordion-flush" id="faqAccordionPt3">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt7" style="background: transparent; color: white;">
+                                        7. O Apple Intelligence não está reconhecendo minha transação. O que faço?
+                                    </button>
+                                </h2>
+                                <div id="faqPt7" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Verifique se o Apple Intelligence está ativado no seu dispositivo em Ajustes → Apple Intelligence &amp; Siri. Certifique-se de que seu dispositivo é compatível (iPhone 15 Pro ou superior, ou iPad com chip M1 ou superior). Se o problema persistir, tente reiniciar o app ou registre a transação manualmente.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt8" style="background: transparent; color: white;">
+                                        8. Meu arquivo Markdown não está sendo gerado. O que verificar?
+                                    </button>
+                                </h2>
+                                <div id="faqPt8" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Confira se o app tem permissão de acesso à pasta selecionada para exportação nas configurações do app. Se você usa o iCloud Drive, verifique se há espaço disponível. Caso o problema persista, entre em contato pelo e-mail abaixo.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqPt9" style="background: transparent; color: white;">
+                                        9. Encontrei um bug ou tenho uma sugestão. Como entrar em contato?
+                                    </button>
+                                </h2>
+                                <div id="faqPt9" class="accordion-collapse collapse" data-bs-parent="#faqAccordionPt3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Adoramos receber feedback! Entre em contato diretamente com o desenvolvedor pelo e-mail <a href="mailto:prismafinanceiro@pm.me">prismafinanceiro@pm.me</a>. Como é um projeto solo, cada feedback ajuda a tornar o app melhor.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr />
+
+                        <h5><i class="bi bi-envelope me-2"></i>Contato</h5>
+                        <p style="color: #adb5bd;">Para dúvidas ou problemas, entre em contato:</p>
+                        <a href="mailto:prismafinanceiro@pm.me">prismafinanceiro@pm.me</a>
+
+                    </div>
+
+                    <!-- EN -->
+                    <div class="lang-section" id="faq-en">
+
+                        <h5><i class="bi bi-question-circle me-2"></i>Frequently Asked Questions</h5>
+
+                        <p class="faq-category">General Questions</p>
+                        <div class="accordion accordion-flush" id="faqAccordionEn">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn1" style="background: transparent; color: white;">
+                                        1. How does Apple Intelligence help me log transactions?
+                                    </button>
+                                </h2>
+                                <div id="faqEn1" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        With Apple Intelligence, you can describe a transaction in natural language — for example, "spent $45 on lunch today" — and the app creates the record automatically with amount, category, and date. All of this processing happens locally on your device, without sending anything to the internet.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn2" style="background: transparent; color: white;">
+                                        2. What is the automatic Markdown export?
+                                    </button>
+                                </h2>
+                                <div id="faqEn2" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Prisma Financeiro follows the <em>file over app</em> philosophy: your data belongs to you, not the app. With each new record, the app keeps an updated Markdown file with all your transactions. You can open that file in Obsidian, iA Writer, or any text editor — even if you uninstall the app, your data remains readable.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn3" style="background: transparent; color: white;">
+                                        3. Do I need an account or sign-up to use the app?
+                                    </button>
+                                </h2>
+                                <div id="faqEn3" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        No. Prisma Financeiro requires no sign-up, login, or external account. Just install and start using it. Everything works with your existing Apple ID for iCloud, if you want sync.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="faq-category">Data &amp; Privacy</p>
+
+                        <div class="accordion accordion-flush" id="faqAccordionEn2">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn4" style="background: transparent; color: white;">
+                                        4. Where is my financial data stored?
+                                    </button>
+                                </h2>
+                                <div id="faqEn4" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        All your data stays exclusively on your device. If you have iCloud enabled, a backup is synced to your personal iCloud account. No data is sent to external servers — not to us, not to third parties.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn5" style="background: transparent; color: white;">
+                                        5. Does Apple Intelligence send my data to Apple?
+                                    </button>
+                                </h2>
+                                <div id="faqEn5" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        No. The Apple Intelligence features used by Prisma Financeiro run entirely on-device. Your financial information never leaves your iPhone or iPad during this processing.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn6" style="background: transparent; color: white;">
+                                        6. How do I delete my data?
+                                    </button>
+                                </h2>
+                                <div id="faqEn6" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn2">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        You can delete individual transactions within the app or remove all data by uninstalling it. Since we never had a copy of your data, there is nothing to erase on our end.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="faq-category">Troubleshooting</p>
+
+                        <div class="accordion accordion-flush" id="faqAccordionEn3">
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn7" style="background: transparent; color: white;">
+                                        7. Apple Intelligence is not recognizing my transaction. What should I do?
+                                    </button>
+                                </h2>
+                                <div id="faqEn7" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Check that Apple Intelligence is enabled on your device under Settings → Apple Intelligence &amp; Siri. Make sure your device is compatible (iPhone 15 Pro or later, or iPad with M1 chip or later). If the issue persists, try restarting the app or log the transaction manually.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn8" style="background: transparent; color: white;">
+                                        8. My Markdown file is not being generated. What should I check?
+                                    </button>
+                                </h2>
+                                <div id="faqEn8" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        Check that the app has permission to access the selected export folder in the app settings. If you use iCloud Drive, verify that there is available storage. If the issue persists, please reach out via the email below.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item" style="background: transparent; border-color: rgba(255,255,255,0.1);">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEn9" style="background: transparent; color: white;">
+                                        9. I found a bug or have a suggestion. How can I reach out?
+                                    </button>
+                                </h2>
+                                <div id="faqEn9" class="accordion-collapse collapse" data-bs-parent="#faqAccordionEn3">
+                                    <div class="accordion-body" style="color: #adb5bd;">
+                                        We love feedback! You can reach the developer directly at <a href="mailto:prismafinanceiro@pm.me">prismafinanceiro@pm.me</a>. As a solo developer project, every piece of feedback helps make the app better.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr />
+
+                        <h5><i class="bi bi-envelope me-2"></i>Contact</h5>
+                        <p style="color: #adb5bd;">For questions or issues, please reach out:</p>
+                        <a href="mailto:prismafinanceiro@pm.me">prismafinanceiro@pm.me</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <a href="/prismafinanceiro/privacy" class="me-3">
+        <span class="lang-section active" id="footer-privacy-pt" style="display:inline;">Política de Privacidade</span>
+        <span class="lang-section" id="footer-privacy-en">Privacy Policy</span>
+    </a>
+    <small>&copy; 2026 Nelson Meireles / nverseio — Todos os direitos reservados</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function setLang(lang) {
+        document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+        ['hero', 'about', 'features', 'faq', 'appstore', 'footer-privacy'].forEach(id => {
+            const el = document.getElementById(id + '-' + lang);
+            if (el) el.classList.add('active');
+        });
+        document.getElementById('btn-en').className = lang === 'en' ? 'btn btn-primary' : 'btn btn-outline-light';
+        document.getElementById('btn-pt').className = lang === 'pt' ? 'btn btn-primary' : 'btn btn-outline-light';
+        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    }
+</script>
+</body>
+</html>
